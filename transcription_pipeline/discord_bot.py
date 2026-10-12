@@ -54,6 +54,7 @@ processor = None
 
 import os
 
+# Authorization Key for discord
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 ZOOM_WEBHOOK_SECRET = os.getenv("ZOOM_WEBHOOK_SECRET") 
@@ -82,6 +83,7 @@ async def global_exception_handler(request: Request, exc: Exception):
     logger.error("Unhandled exception occurred", exc_info=exc)
     return JSONResponse(status_code=500, content={"message": "Internal Server Error"})
 
+# Embed summary into vector representations such that they are seved for future reference.
 async def embed_summary(id: str, meeting_name: str, summary_body:str):
     global dimensions
 
@@ -111,7 +113,7 @@ async def embed_summary(id: str, meeting_name: str, summary_body:str):
     os.replace(temp, filename)
     return
 
-
+# Get closest matching meeting summary based on user's query.
 async def get_summary(meeting_name, query: str):
     query_embedding = model.encode(query)
     if query_embedding.ndim == 1:
@@ -127,7 +129,7 @@ async def get_summary(meeting_name, query: str):
         return i
     return []
 
-
+# Store recently computed summary
 async def store_meeting_summary(id: str, meeting_name: str, summary_body:str):
     global collection
     try:
@@ -137,27 +139,20 @@ async def store_meeting_summary(id: str, meeting_name: str, summary_body:str):
         print(e, file=sys.stderr)
 
 
-## Discord Bot∂
+## Discord Bot
+# Split text.
 def split_text(summary):
-    print(" at aplit")
     doc = nlp(summary)
-    print(" at aplis")
-
-    
     chunks = []
     chunks.append("----------------------------------------------------")
-
-
     max_len = 1800
     summ_str = ""
-
     for s in doc.sents:
         if len(s.text) + len(summ_str) <= max_len:
             summ_str += s.text
         else:
             chunks.append(summ_str)
-            summ_str = s.text 
-        
+            summ_str = s.text       
     chunks.append("----------------------------------------------------")
     return chunks
 
@@ -178,7 +173,7 @@ async def on_ready():
 	print("SampleDiscordBot is in " + str(guild_count) + " guilds.")
 
 
-
+# Event response on bot ping.
 @bot.command()
 async def ping(ctx, meeting_name: str, query: str):
     global collection
@@ -211,9 +206,8 @@ async def ping(ctx, meeting_name: str, query: str):
 
 
     
-
+# Send transcript upon Zoom webhook trigger + Post processing.
 async def send_transcripts(message: str | list[str]):
-	# CHECKS IF THE MESSAGE THAT WAS SENT IS EQUAL TO "HELLO".
 
     channel_id = 1506427721608073248
      
@@ -231,23 +225,7 @@ async def send_transcripts(message: str | list[str]):
             print("sending", i)
             await channel.send(i)
 
-
-async def send_transcripts_chunked(message):
-	# CHECKS IF THE MESSAGE THAT WAS SENT IS EQUAL TO "HELLO".
-
-    channel_id = 1506427721608073248
-     
-    channel = bot.get_channel(channel_id)
-    
-    chunks = split_text(message)
-    await bot.wait_until_ready()
-    for i in chunks:
-        print("sending", i)
-        await channel.send(i)
-    
-
-   
-
+## Administrative functions
 async def run_discord_bot():
     print('STARTING DISCORD BOT')
     await bot.start(DISCORD_TOKEN)
@@ -287,9 +265,9 @@ def get_access_token():
 
 
 async def get_audio_file_summarize(body):
-    #download_token = body["download_token"]
-    #headers = {"Authorization": f"Bearer {download_token}"}
-    #recording_files = body["payload"]["object"]['recording_files']
+    download_token = body["download_token"]
+    headers = {"Authorization": f"Bearer {download_token}"}
+    recording_files = body["payload"]["object"]['recording_files']
 
 
     global processor
@@ -299,31 +277,21 @@ async def get_audio_file_summarize(body):
     print(body)
 
 
-    #with open(record_filename, "wb") as file_out:
-    #    for chunk in download_req_response.iter_content(chunk_size=8192):
-    #        if chunk:
-    #            file_out.write(chunk)
+    with open(record_filename, "wb") as file_out:
+        for chunk in download_req_response.iter_content(chunk_size=8192):
+            if chunk:
+                file_out.write(chunk)
 
     
 
 
     final_proj_lists, final_pers_lists = await asyncio.to_thread(processor.post_process_openai,audio_file="sample_meeting_audio.m4a", list_participants=None)
 
-    #await store_meeting_sumamry()
 
     await send_transcripts(final_pers_lists)
     await send_transcripts(final_proj_lists)
-    
 
 
-    # need to change random rand int, as it this can cause hash collisions
-    #await store_meeting_summary(random.randint(1, 255), "Scrum_Meeting", s)
-    #await send_transcripts(s)
-
-
-    """
-    
-    
     # Download each recording file
     for f in recording_files:
         record_name = f["id"]
@@ -363,6 +331,7 @@ async def get_audio_file_summarize(body):
 
                     await send_transcripts(final_pers_lists)
                     await send_transcripts(final_proj_lists)
+                    
 
                     
                     
@@ -378,7 +347,7 @@ async def get_audio_file_summarize(body):
                 except Exception as e:
                     print(e)
                     return 1
-                """
+                
     
     return 0
 

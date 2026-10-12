@@ -1,5 +1,9 @@
 """
-reference - https://builtin.com/software-engineering-perspectives/discord-bot-python
+reference 
+https://builtin.com/software-engineering-perspectives/discord-bot-python
+https://chatgpt.com/share/69a37f14-bd48-8001-944f-434d019dc6d5 -- Validating a URL for the first time. 
+https://chatgpt.com/share/69a4d446-bf28-8001-a546-9303bc2ca6e4 -- Learning how to validate and download zoom recordings using webhooks.
+https://share.gemini.google/cylWPagTrLmQ
 """
 
 import logging
@@ -209,6 +213,7 @@ async def ping(ctx, meeting_name: str, query: str):
 # Send transcript upon Zoom webhook trigger + Post processing.
 async def send_transcripts(message: str | list[str]):
 
+    # Change this to respective channel id.
     channel_id = 1506427721608073248
      
     channel = bot.get_channel(channel_id)
@@ -331,7 +336,7 @@ async def get_audio_file_summarize(body):
 
                     await send_transcripts(final_pers_lists)
                     await send_transcripts(final_proj_lists)
-                    
+
 
                     
                     

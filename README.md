@@ -37,12 +37,37 @@ Eventually, the project will:
 
 This project is intended primarily for **internal AIEA lab and academic use**.
 
-## Transcribe video/audio with Whisper
+## Transcribing Video/Audio Files with Whisper
+Whisper is an open source transcription model created by OpenAI. 
+| **Name** | **Parameters** | **English-only model** | **Multilingual model** | **Required VRAM** | **Relative Speed** |
+| --- | --- | --- | --- | --- | --- |
+| tiny | 39 M | tiny.en | tiny | ~1 GB | ~10x |
+| base | 74 M | base.en | base | ~1 GB | ~7x |
+| small | 244 M | small.en | small | ~2 GB | ~4x |
+| medium | 769 M | medium.en | tiny | ~5 GB | ~10x | 
+| large | 1550 M | N/A | large | ~10 GB | 1x | 
+| turbo | 809 M | N/A | turbo | ~6 GB | ~8x |
+#### Accepted File Types
+Audio: 3GA, 8SVX, AAC, AC3, AIF, AIFF, ALAC, AMR, APE, AU, DSS, FLAC, M4A, M4B, M4P, M4R, MOGG, MP2, MP3, MPGA, OGG, OGA, OPUS, QCP, TTA, VOC, WAV, WMA \
+Video: FLV, M2TS, M4V, MKV, MOV, MP4, MTS, MXF, TS, WEBM \
+(Up to 5GB per file)
 
-1. Clone the git repo 
-2. Install openai-whisper
-3. Place files in olelo/transcription_pipeline/files_to_transcribe
-4. Make sure you are inside the olelo directory and copy and paste this script into your terminal:\n
-    python ./transcription_pipeline/whisper_transcribe.py <model_type>
-
-
+### TO USE:
+1. Clone this git repo: \
+        ```
+        git clone https://github.com/aiea-lab/olelo.git \
+        cd olelo
+        ```
+2. Install openai-whisper and its dependencies: \
+        ```
+        pip install openai-whisper
+        ```
+3. Place files in olelo/transcription_pipeline/files_to_transcribe: \
+        ```
+        mv <path_to_your_files> ./transcription_pipeline/files_to_transcribe
+        ```
+4. Make sure you are inside the olelo directory and paste this script into your terminal (replace \<modeltype\> with one of the models above): \
+        ```
+        python ./transcription_pipeline/whisper_transcribe.py <model_type>
+        ```
+5. View your results in transcription_pipeline/transcriptions.txt

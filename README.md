@@ -53,22 +53,23 @@ Video: FLV, M2TS, M4V, MKV, MOV, MP4, MTS, MXF, TS, WEBM \
 (Up to 5GB per file)
 
 ### TO USE:
-1. Clone this git repo: \
-        ```
-        git clone https://github.com/aiea-lab/olelo.git \
-        cd olelo
-        ```
-2. Install openai-whisper and its dependencies: \
-        ```
-        pip install openai-whisper
-        ```
-3. Place files in olelo/transcription_pipeline/files_to_transcribe: \
-        ```
-        mkdir ./transcription_pipeline/files_to_transcribe \
-        mv <path_to_your_files> ./transcription_pipeline/files_to_transcribe
-        ```
-4. Make sure you are inside the olelo directory and paste this script into your terminal (replace \<modeltype\> with one of the models above): \
-        ```
-        python ./transcription_pipeline/whisper_transcribe.py <model_type>
-        ```
-5. View your results in transcription_pipeline/transcriptions.txt
+1. Clone this git repo: 
+```bash
+git clone https://github.com/aiea-lab/olelo.git 
+cd olelo
+```
+2. Install openai-whisper and its dependencies: 
+```bash
+pip install openai-whisper
+```
+3. Place files in `olelo/transcription_pipeline/files_to_transcribe`:
+```bash
+mkdir ./transcription_pipeline/files_to_transcribe
+mv <path_to_your_files> ./transcription_pipeline/files_to_transcribe
+```
+
+5. Make sure you are inside the olelo directory and paste this script into your terminal (replace \<modeltype\> with one of the models above):
+```bash
+python ./transcription_pipeline/whisper_transcribe.py <model_type>
+```
+6. View your results in `transcription_pipeline/transcriptions.txt`

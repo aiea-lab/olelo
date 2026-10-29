@@ -64,6 +64,7 @@ Video: FLV, M2TS, M4V, MKV, MOV, MP4, MTS, MXF, TS, WEBM \
         ```
 3. Place files in olelo/transcription_pipeline/files_to_transcribe: \
         ```
+        mkdir ./transcription_pipeline/files_to_transcribe
         mv <path_to_your_files> ./transcription_pipeline/files_to_transcribe
         ```
 4. Make sure you are inside the olelo directory and paste this script into your terminal (replace \<modeltype\> with one of the models above): \

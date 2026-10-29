@@ -36,3 +36,13 @@ Eventually, the project will:
 4. Gemma (in-house LM) recieves the merged transcripts and diarizations and gives a brief summary of the meeting.
 
 This project is intended primarily for **internal AIEA lab and academic use**.
+
+## Transcribe video/audio with Whisper
+
+1. Clone the git repo 
+2. Install openai-whisper
+3. Place files in olelo/transcription_pipeline/files_to_transcribe
+4. Make sure you are inside the olelo directory and copy and paste this script into your terminal:\n
+    python ./transcription_pipeline/whisper_transcribe.py <model_type>
+
+

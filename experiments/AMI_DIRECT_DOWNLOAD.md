@@ -81,6 +81,7 @@ View logs:
 
 ```bash
 kubectl logs <POD_NAME> -n gilpin-lab
+kubectl logs -f <POD_NAME> -n gilpin-lab # To view streaming logs
 ```
 
 ## 5. Inspect PVC Contents

@@ -60,7 +60,7 @@ cd olelo
 ```
 2. Install openai-whisper and its dependencies: 
 ```bash
-pip install openai-whisper
+pip install openai-whisper moviepy
 ```
 3. Place files in `olelo/transcription_pipeline/files_to_transcribe`:
 ```bash

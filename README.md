@@ -38,6 +38,8 @@ Eventually, the project will:
 This project is intended primarily for **internal AIEA lab and academic use**.
 
 ## Transcribing Video/Audio Files with Whisper
+@lthormod edits
+
 Whisper is an open source transcription model created by OpenAI. 
 | **Name** | **Parameters** | **English-only model** | **Multilingual model** | **Required VRAM** | **Relative Speed** |
 | --- | --- | --- | --- | --- | --- |

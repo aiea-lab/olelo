@@ -1,0 +1,64 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ami-direct-download
+  namespace: gilpin-lab
+
+spec:
+  backoffLimit: 2
+
+  template:
+    metadata:
+      labels:
+        app: ami-direct-download
+
+    spec:
+      restartPolicy: Never
+
+      containers:
+        - name: downloader
+
+          image: ubuntu:24.04
+
+          command:
+            - /bin/bash
+            - -c
+            - |
+              set -e
+
+              echo "Installing download dependencies..."
+              apt-get update
+              apt-get install -y wget ca-certificates unzip
+
+              echo "Starting AMI download..."
+              mkdir -p /data/ami-official
+              cd /data/ami-official
+
+              bash /scripts/ami_official_download.sh
+
+              echo "AMI download completed."
+
+          resources:
+            requests:
+              cpu: "1"
+              memory: "2Gi"
+            limits:
+              cpu: "1"
+              memory: "2Gi"
+
+          volumeMounts:
+            - name: ami-storage
+              mountPath: /data
+
+            - name: download-script
+              mountPath: /scripts
+              readOnly: true
+
+      volumes:
+        - name: ami-storage
+          persistentVolumeClaim:
+            claimName: pkandhas-ami-data
+
+        - name: download-script
+          configMap:
+            name: ami-download-script

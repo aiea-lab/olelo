@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: olelo-diarization
+  namespace: gilpin-lab
+
+spec:
+  restartPolicy: Never
+
+  containers:
+    - name: diarization
+      image: python:3.11-slim
+
+      command:
+        - bash
+        - -c
+        - |
+          apt-get update &&
+          apt-get install -y ffmpeg &&
+          sleep infinity
+
+      resources:
+        requests:
+          cpu: "4"
+          memory: "16Gi"
+        limits:
+          cpu: "4"
+          memory: "16Gi"
+
+      volumeMounts:
+        - name: ami-data
+          mountPath: /data
+
+  volumes:
+    - name: ami-data
+      persistentVolumeClaim:
+        claimName: pkandhas-ami-data

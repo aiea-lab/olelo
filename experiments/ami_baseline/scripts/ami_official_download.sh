@@ -1,27 +1,39 @@
 #!/bin/sh
 set -e
-wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Closeup1.rm
-wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Closeup2.rm
-wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Closeup3.rm
-wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Closeup4.rm
-wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Corner.rm
-wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Overhead.rm
-wget    -P amicorpus/EN2001b/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/audio/EN2001b.Mix-Headset.wav
-wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Closeup1.rm
-wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Closeup2.rm
-wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Closeup3.rm
-wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Closeup4.rm
-wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Corner.rm
-wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Overhead.rm
-wget    -P amicorpus/EN2001d/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/audio/EN2001d.Mix-Headset.wav
-wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Closeup1.rm
-wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Closeup2.rm
-wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Closeup3.rm
-wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Closeup4.rm
-wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Corner.rm
-wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Overhead.rm
-wget    -P amicorpus/EN2001e/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/audio/EN2001e.Mix-Headset.wav
+wget -c -P amicorpus/EN2003a/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2003a/audio/EN2003a.Mix-Headset.wav
+wget -c -P amicorpus/EN2004a/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2004a/audio/EN2004a.Mix-Headset.wav
+wget -c -P amicorpus/EN2005a/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2005a/audio/EN2005a.Mix-Headset.wav
+wget -c -P amicorpus/EN2006a/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2006a/audio/EN2006a.Mix-Headset.wav
+wget -c -P amicorpus/EN2006b/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2006b/audio/EN2006b.Mix-Headset.wav
+wget -c -P amicorpus/EN2009b/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2009b/audio/EN2009b.Mix-Headset.wav
+wget -c -P amicorpus/EN2009c/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2009c/audio/EN2009c.Mix-Headset.wav
+wget -c -P amicorpus/EN2009d/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2009d/audio/EN2009d.Mix-Headset.wav
 wget https://groups.inf.ed.ac.uk/ami/download/temp/../CCBY4.0.txt
+
+# #!/bin/sh
+# set -e
+# wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Closeup1.rm
+# wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Closeup2.rm
+# wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Closeup3.rm
+# wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Closeup4.rm
+# wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Corner.rm
+# wget    -P amicorpus/EN2001b/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/video/EN2001b.Overhead.rm
+# wget    -P amicorpus/EN2001b/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001b/audio/EN2001b.Mix-Headset.wav
+# wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Closeup1.rm
+# wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Closeup2.rm
+# wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Closeup3.rm
+# wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Closeup4.rm
+# wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Corner.rm
+# wget    -P amicorpus/EN2001d/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/video/EN2001d.Overhead.rm
+# wget    -P amicorpus/EN2001d/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001d/audio/EN2001d.Mix-Headset.wav
+# wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Closeup1.rm
+# wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Closeup2.rm
+# wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Closeup3.rm
+# wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Closeup4.rm
+# wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Corner.rm
+# wget    -P amicorpus/EN2001e/video https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/video/EN2001e.Overhead.rm
+# wget    -P amicorpus/EN2001e/audio https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/EN2001e/audio/EN2001e.Mix-Headset.wav
+# wget https://groups.inf.ed.ac.uk/ami/download/temp/../CCBY4.0.txt
 
 # #!/bin/sh
 # set -e
